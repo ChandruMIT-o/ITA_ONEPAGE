@@ -1,0 +1,124 @@
+@import url(/components/styles/root.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--outfit);
+}
+
+html, body {
+    font-family: var(--outfit);
+}
+
+body {
+    background-color: #121AFF;
+}
+
+.menu-bar {
+    position: absolute; /* Make the menu-bar absolute */
+    top: 20px; /* Adjust this to position it lower from the top */
+    right: 20px; /* Adjust this to position it closer to the right edge */
+    display: grid;
+    gap: 7px;
+    justify-items: end;
+    z-index: 10; /* Ensure it's on top of other elements */
+}
+
+.hover-bg,
+.selected-bg {
+    position: absolute;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(50px);
+    border-radius: 55px;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.menu-button {
+    display: inline-flex;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 15px;
+
+    font-size: 14px;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.8);
+
+    cursor: pointer;
+    text-align: center;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(70px);
+    border: none;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.menu-button:hover {
+    color: #4753BF;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 1px rgba(255, 255, 255, 1);
+}
+
+.menu-button:active{ 
+    color: #121AFF;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 1);
+    font-size: 14.5px;
+}
+
+.selected-button {
+    color: #121AFF;
+    background: rgba(255, 255, 255, 1);
+    transition: all 0.3s ease;
+}
+
+
+section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.global-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+}
+
+.section-1 {
+    background-color:chocolate;
+}
+
+.section-2 {
+    background-color: #6791b9;
+}
+
+.section-3 {
+    background-color: #c94141;
+}
+
+.section-4 {
+    background-color: #c9a1c9;
+}
+
+.section-5 {
+    background-color: chartreuse;
+}
+
+.section-6 {
+    background-color: #f79241;
+}
+
+h1 {
+    color: white;
+}
