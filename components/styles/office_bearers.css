@@ -1,0 +1,201 @@
+.office-bearers {
+	display: flex;
+	flex-direction: column;
+}
+
+.office-bearers-title {
+	display: flex;
+	text-transform: uppercase;
+	font-size: 2.7rem;
+	font-weight: 900;
+
+	padding-left: 150px;
+	padding-right: 60px;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+.container {
+	flex: 1;
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+	margin: 10px;
+	position: relative;
+}
+
+.column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	overflow: hidden;
+	transition: transform 0.3s ease-out;
+	justify-content: flex-start;
+	gap: 20px;
+
+	background: transparent;
+}
+
+.personal-details {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 25px;
+
+	font-family: "Outfit";
+}
+
+.item {
+	background: #f8f8f8;
+	backdrop-filter: blur(5px);
+	border-radius: 30px;
+	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	height: 480px;
+	width: 340px;
+}
+
+.photo {
+	height: 400px;
+	background: #6b87f4;
+	border-radius: 30px;
+}
+
+.item:hover {
+	transform: scale(1.03);
+	background: #e9f3f1;
+	color: #fff;
+}
+
+.name-plate {
+	font-size: 1.3rem;
+	color: #000000;
+	font-weight: 500;
+}
+
+.designation {
+	font-size: 1rem;
+	color: #6b87f4;
+}
+
+.slow {
+	transform: translateY(0);
+	transition: transform 0.05s linear;
+
+	background-color: transparent;
+}
+
+.normal {
+	transform: translateY(0);
+	transition: transform 0.05s linear;
+	background-color: transparent;
+}
+
+.social-icons {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	display: flex;
+	gap: 0;
+}
+
+.icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.phone-icon,
+.instagram-icon {
+	position: absolute;
+	z-index: 2;
+	right: 10px;
+	bottom: 0;
+	width: 45px;
+	height: 45px;
+	background-color: #6b87f4;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: right 1s ease-in-out;
+}
+
+.phone-icon {
+	right: 0px;
+}
+
+.instagram-icon {
+	z-index: 1;
+	right: 25px;
+	background-color: #5d70d7;
+}
+
+.item:hover .phone-icon {
+	right: 0px;
+}
+
+.item:hover .instagram-icon {
+	right: 50px;
+}
+
+.icon {
+	transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+	transform-origin: center;
+}
+
+.icon.clicked {
+	transform: scale(0.85) rotate3d(1, 1, 0, 50deg) skew(5deg, 9deg);
+	transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+		background-color 0.3s linear;
+	animation: icon-active-effect 0.65s ease-in-out;
+}
+
+@keyframes icon-active-effect {
+	0% {
+		transform: scale(0.85) rotate3d(1, 1, 0, 0deg) skew(5deg, 3deg);
+	}
+	50% {
+		transform: scale(0.75) rotate3d(0.1, 0.1, 0, -180deg) skew(-5deg, -2deg);
+	}
+	100% {
+		transform: scale(1) rotate3d(0, 0, 0, 0deg) skew(0deg, 0deg);
+	}
+}
+
+.copy-toast {
+	position: absolute;
+	background-color: black;
+	color: white;
+	padding: 7px 21px;
+	border-radius: 5px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	opacity: 0;
+	transform: translateY(-25px);
+	animation: fadeInOut 2.5s ease-in-out;
+	pointer-events: none;
+}
+
+@keyframes fadeInOut {
+	0% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+	10% {
+		opacity: 1;
+		transform: translateY(-5px);
+	}
+	90% {
+		opacity: 1;
+		transform: translateY(-5px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+}

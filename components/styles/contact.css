@@ -1,0 +1,10 @@
+.contact-section {
+	position: relative;
+}
+
+.animated-svg {
+	height: 100vh;
+	width: 100vw;
+	top: 40%;
+	position: relative;
+}

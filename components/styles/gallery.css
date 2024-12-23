@@ -1,0 +1,140 @@
+.gallery-section {
+	width: max-content;
+}
+
+/* 1. BACKGROUND DESIGN */
+
+.usection {
+	position: relative;
+	height: 23vh;
+	width: 100vw;
+	background: linear-gradient(45deg, #9033ff, #0718ff);
+}
+
+.square {
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	box-sizing: border-box;
+	transition: background-color 0.4s, border-color 0.6s;
+
+	z-index: 1;
+}
+
+.gallery-title {
+	display: flex;
+	text-transform: uppercase;
+	font-size: 2.7rem;
+	font-weight: 900;
+
+	padding-left: 150px;
+	padding-right: 60px;
+	padding-top: 70px;
+
+	color: white;
+}
+
+/* Toggleable Button Group */
+
+.button-group {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+
+	transform: translate(15%, 0);
+	margin-top: 10px;
+
+	z-index: 10;
+	position: relative;
+}
+
+.selection-bg,
+.hover-overlay {
+	position: absolute;
+	height: 40px;
+	border-radius: 200px;
+	transition: all 0.4s ease;
+	z-index: 1;
+}
+
+.selection-bg {
+	background-color: white;
+	border-color: white;
+	color: white;
+}
+
+.hover-overlay {
+	background: rgb(55, 33, 255, 1);
+}
+
+.gbutton {
+	position: relative;
+	font-size: 1rem;
+
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 200px;
+
+	border: solid;
+	border-color: #3721ff;
+	border-width: 1.6px;
+
+	color: #3721ff;
+	background-color: white;
+
+	z-index: 1;
+
+	cursor: pointer;
+}
+
+/* Image TRACK */
+
+.gallery-section {
+	height: 100vh;
+	/* width: 100vw; */
+	margin: 0rem;
+}
+
+#image-track {
+	display: flex;
+	gap: 3vmin;
+	position: relative;
+	left: 10%;
+	top: 38%;
+	transform: translate(0%, -50%);
+	user-select: none;
+	cursor: grab;
+	transition: all 1s ease-in-out;
+}
+
+#image-track > .image {
+	width: 90vmin;
+	height: 60vmin;
+	object-fit: cover;
+	object-position: 100% center;
+
+	transition: all 0.8s ease-in-out;
+	border-radius: 10px;
+	filter: grayscale(100%);
+}
+
+#image-track:active {
+	gap: 2vmin;
+}
+
+#image-track:active > .image {
+	cursor: grabbing;
+	width: 40vmin;
+	height: 66vmin;
+
+	border-radius: 200px;
+}
+
+#image-track:hover > .image {
+	filter: grayscale(0%);
+}

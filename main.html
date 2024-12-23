@@ -1,64 +1,917 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITA ONEPAGE</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="components/styles/head.css">
-    <link rel="stylesheet" href="components/styles/about-us.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
-</head>
-
-<body>
-    <div class="menu-bar">
-        <div class="hover-bg"></div>
-        <div class="selected-bg"></div>
-        <button class="menu-button" data-target="#section-1">Home</button>
-        <button class="menu-button" data-target="#section-2">About Us</button>
-        <button class="menu-button" data-target="#section-3">Office Bearers</button>
-        <button class="menu-button" data-target="#section-4">ITA Activities</button>
-        <button class="menu-button" data-target="#section-5">Gallery</button>
-        <button class="menu-button" data-target="#section-6">Contact</button>
-    </div>
-    <div class="global-container">
-        <section id="section-1" class="section-1 home-section">
-            <div class="ITA-text-animation">
-                <label class="ITA-text">ITA</label>
-            </div>
-            <div class="TITLE">
-                <label class="main-transition transition-inverse">INFORMATION</label>
-                <label class="TITLE2 main-transition transition-inverse">TECHNOLOGY</label>
-                <label class="TITLE3 main-transition">ASSOCIATION</label>
-                <label class="description description-transition">SAMHITA is a 2-day inter-college symposium with both onsite and online events, featuring more than 20 technological events and workshops on the latest IT trends.</label>
-            </div>
-            <label class="year-bg">2024-25</label>
-            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js" async></script>
-            <spline-viewer class="spline3d" loading-anim-type="spinner-small-light" url="https://prod.spline.design/zKtnEgaCWQ2i8HO2/scene.splinecode"><img src="data:image/png;base64,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" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer>
-        </section>
-        <section id="section-2" class="section-2 about-us-section">
-            <div class="about-us-left-side">
-
-            </div>
-            <div class="about-us-right-side">
-
-            </div>
-        </section>
-        <section id="section-3" class="section-3">
-            <h1>OFFICE BEARERS</h1>
-        </section>
-        <section id="section-4" class="section-4">
-            <h1>ITA ACTIVITIES</h1>
-        </section>
-        <section id="section-5" class="section-5">
-            <h1>GALLERY</h1>
-        </section>
-        <section id="section-6" class="section-6">
-            <h1>CONTACT</h1>
-        </section>
-    </div>
-    <script src="main.js"></script>
-    <script src="components/scripts/head.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ITA ONEPAGE</title>
+		<link rel="stylesheet" href="main.css" />
+		<link rel="stylesheet" href="components/styles/head.css" />
+		<link rel="stylesheet" href="components/styles/about-us.css" />
+		<link rel="stylesheet" href="components/styles/office_bearers.css" />
+		<link rel="stylesheet" href="components/styles/gallery.css" />
+		<link rel="stylesheet" href="components/styles/contact.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	</head>
+	<body>
+		<div class="menu-bar">
+			<div class="hover-bg"></div>
+			<div class="selected-bg"></div>
+			<button class="menu-button" data-target="#section-1">Home</button>
+			<button class="menu-button" data-target="#section-2">
+				About Us
+			</button>
+			<button class="menu-button" data-target="#section-3">
+				Office Bearers
+			</button>
+			<button class="menu-button" data-target="#section-4">
+				ITA Activities
+			</button>
+			<button class="menu-button" data-target="#section-5">
+				Gallery
+			</button>
+			<button class="menu-button" data-target="#section-6">
+				Contact
+			</button>
+		</div>
+		<div class="global-container">
+			<section id="section-1" class="section-1 home-section">
+				<div class="ITA-text-animation">
+					<label class="ITA-text">ITA</label>
+				</div>
+				<div class="TITLE">
+					<label class="main-transition transition-inverse"
+						>INFORMATION</label
+					>
+					<label class="TITLE2 main-transition transition-inverse"
+						>TECHNOLOGY</label
+					>
+					<label class="TITLE3 main-transition">ASSOCIATION</label>
+					<label class="description description-transition"
+						>SAMHITA is a 2-day inter-college symposium with both
+						onsite and online events, featuring more than 20
+						technological events and workshops on the latest IT
+						trends.</label
+					>
+				</div>
+				<label class="year-bg">2024-25</label>
+				<!-- <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"
+          async
+        ></script>
+        <spline-viewer
+          class="spline3d"
+          loading-anim-type="spinner-small-light"
+          url="https://prod.spline.design/zKtnEgaCWQ2i8HO2/scene.splinecode"
+          ><img
+            src="data:image/png;base64,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"
+            alt="Spline preview"
+            style="width: 100%; height: 100%"
+        /></spline-viewer> -->
+			</section>
+			<section id="section-2" class="section-2 about-us-section">
+				<div class="about-us-left-side">
+					<div class="left-strip"></div>
+					<label class="about-us-title">ABOUT US</label>
+					<label class="about-us-description"
+						>The Information Technology Association (ITA) was
+						established in 2001 and is comprised of students
+						studying within the Department of Information
+						Technology. The Association is led by Dr. G. Rajesh, who
+						serves as the advisor. With the support and guidance of
+						mentors and faculty members, the Association aims to
+						assist students in enhancing their skills and abilities.
+					</label>
+					<div class="grid-stats">
+						<div class="column-grid-stat">
+							<div class="stat1">
+								<div class="capsule1"></div>
+								<label class="stat-number placements-odometer"
+									>99</label
+								>
+								<label class="stat-description"
+									>Placements</label
+								>
+							</div>
+							<div class="stat1">
+								<div class="capsule1"></div>
+								<div>
+									<label class="stat-number ctc-odometer"
+										>40</label
+									>
+									<label class="stat-number-unit">LPA</label>
+								</div>
+								<label class="stat-description"
+									>Highest CTC</label
+								>
+							</div>
+						</div>
+						<div class="column-grid-stat">
+							<div class="stat1">
+								<div class="capsule2"></div>
+								<label class="stat-number interns-odometer"
+									>30</label
+								>
+								<label class="stat-description">Interns</label>
+							</div>
+							<div class="stat1">
+								<div class="capsule2"></div>
+								<label
+									class="stat-number higher-studies-odometer"
+									>3</label
+								>
+								<label class="stat-description"
+									>Higher Studies</label
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-us-right-side">
+					<div
+						class="living-album"
+						id="wrapper"
+						data-configuration="1"
+						data-roundness="1"
+					>
+						<div class="shape"></div>
+						<div class="shape"></div>
+						<div class="shape"></div>
+						<div class="shape"></div>
+					</div>
+				</div>
+			</section>
+			<section id="section-3" class="section-3 office-bearers">
+				<div class="office-bearers-title">Office Bearers</div>
+				<div class="container">
+					<div class="column slow" id="column1">
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column normal" id="column2">
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column slow" id="column3">
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo color2"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="column normal" id="column4">
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="photo"></div>
+							<div class="personal-details">
+								<label class="name-plate">Member Name</label
+								><label class="designation">Designation</label>
+							</div>
+							<div class="social-icons">
+								<div
+									class="icon phone-icon"
+									data-copy="1234567890"
+									aria-label="Phone Icon"
+								>
+									<svg
+										width="21"
+										height="21"
+										viewBox="0 0 21 21"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M20.9685 17.1465C20.9685 17.5245 20.8845 17.913 20.706 18.291C20.5275 18.669 20.2965 19.026 19.992 19.362C19.4775 19.929 18.9105 20.3385 18.27 20.601C17.64 20.8635 16.9575 21 16.2225 21C15.1515 21 14.007 20.748 12.7995 20.2335C11.592 19.719 10.3845 19.026 9.1875 18.1545C7.98 17.2725 6.8355 16.296 5.7435 15.2145C4.662 14.1225 3.6855 12.978 2.814 11.781C1.953 10.584 1.26 9.387 0.756 8.2005C0.252 7.0035 0 5.859 0 4.767C0 4.053 0.126 3.3705 0.378 2.7405C0.63 2.1 1.029 1.512 1.5855 0.987C2.2575 0.3255 2.9925 0 3.7695 0C4.0635 0 4.3575 0.0630001 4.62 0.189C4.893 0.315 5.1345 0.504 5.3235 0.777L7.7595 4.2105C7.9485 4.473 8.085 4.7145 8.1795 4.9455C8.274 5.166 8.3265 5.3865 8.3265 5.586C8.3265 5.838 8.253 6.09 8.106 6.3315C7.9695 6.573 7.77 6.825 7.518 7.077L6.72 7.9065C6.6045 8.022 6.552 8.1585 6.552 8.3265C6.552 8.4105 6.5625 8.484 6.5835 8.568C6.615 8.652 6.6465 8.715 6.6675 8.778C6.8565 9.1245 7.182 9.576 7.644 10.122C8.1165 10.668 8.6205 11.2245 9.1665 11.781C9.7335 12.3375 10.2795 12.852 10.836 13.3245C11.382 13.7865 11.8335 14.1015 12.1905 14.2905C12.243 14.3115 12.306 14.343 12.3795 14.3745C12.4635 14.406 12.5475 14.4165 12.642 14.4165C12.8205 14.4165 12.957 14.3535 13.0725 14.238L13.8705 13.4505C14.133 13.188 14.385 12.9885 14.6265 12.8625C14.868 12.7155 15.1095 12.642 15.372 12.642C15.5715 12.642 15.7815 12.684 16.0125 12.7785C16.2435 12.873 16.485 13.0095 16.7475 13.188L20.223 15.6555C20.496 15.8445 20.685 16.065 20.8005 16.3275C20.9055 16.59 20.9685 16.8525 20.9685 17.1465Z"
+											fill="white"
+										/>
+									</svg>
+								</div>
+								<div
+									class="icon instagram-icon"
+									data-copy="https://instagram.com"
+									aria-label="Instagram Icon"
+								>
+									<svg
+										width="25"
+										height="25"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M18.275 6.725H18.2855M7.25 2H17.75C20.6495 2 23 4.3505 23 7.25V17.75C23 20.6495 20.6495 23 17.75 23H7.25C4.3505 23 2 20.6495 2 17.75V7.25C2 4.3505 4.3505 2 7.25 2ZM16.7 11.8385C16.8296 12.7124 16.6803 13.6048 16.2734 14.389C15.8666 15.1731 15.2228 15.809 14.4337 16.2062C13.6446 16.6033 12.7504 16.7416 11.8782 16.6012C11.006 16.4609 10.2002 16.0491 9.57558 15.4244C8.95091 14.7998 8.53912 13.994 8.39877 13.1218C8.25842 12.2496 8.39667 11.3554 8.79384 10.5663C9.19102 9.7772 9.8269 9.13343 10.611 8.72655C11.3952 8.31968 12.2876 8.17042 13.1615 8.3C14.0529 8.43218 14.8781 8.84754 15.5153 9.48472C16.1525 10.1219 16.5678 10.9471 16.7 11.8385Z"
+											stroke="white"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="section-4" class="section-4">
+				<h1>ITA ACTIVITIES</h1>
+			</section>
+			<section id="section-5" class="section-5 gallery-section">
+				<div class="usection">
+					<div class="square"></div>
+					<label class="gallery-title">OUR GALLERY</label>
+					<div class="button-group">
+						<div class="selection-bg"></div>
+						<!-- Morphing background for selected button -->
+						<div class="hover-overlay"></div>
+						<!-- Morphing overlay for hover effect -->
+						<button class="gbutton">Samhita</button>
+						<button class="gbutton">Mitafest</button>
+						<button class="gbutton">Inauguration</button>
+						<button class="gbutton">Farewell</button>
+					</div>
+				</div>
+				<div
+					id="image-track"
+					data-mouse-down-at="0"
+					data-prev-percentage="0"
+					data-percentage="0"
+				>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80"
+						draggable="false"
+					/>
+					<img
+						class="image"
+						src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+						draggable="false"
+					/>
+				</div>
+			</section>
+			<section id="section-6" class="section-6 contact-section">
+				<svg
+					class="animated-svg"
+					viewBox="-250 0 500 100"
+					stroke-linecap="round"
+				></svg>
+			</section>
+		</div>
+		<script src="main.js"></script>
+		<script src="components/scripts/head.js"></script>
+		<script src="components/scripts/about-us.js"></script>
+		<script src="components/scripts/office_bearers.js"></script>
+		<script src="components/scripts/contact.js"></script>
+		<script src="components/scripts/gallery.js"></script>
+	</body>
+</html>
