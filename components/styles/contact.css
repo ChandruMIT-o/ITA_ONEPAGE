@@ -1,10 +1,63 @@
 .contact-section {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-details {
+	display: flex;
+	flex-direction: column;
+	margin-top: 30px;
+	gap: 25px;
+	z-index: 2px;
 }
 
 .animated-svg {
-	height: 100vh;
+	bottom: 0px;
 	width: 100vw;
-	top: 40%;
+	height: 100%;
 	position: relative;
+	overflow: visible;
+	z-index: 0px;
+}
+
+.office-title {
+	display: flex;
+	text-transform: uppercase;
+	font-size: 2.7rem;
+	font-weight: 900;
+
+	padding-left: 150px;
+	padding-right: 60px;
+	padding-top: 60px;
+}
+
+.detail {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	padding-left: 80px;
+}
+
+.detail-icon {
+	right: 10px;
+	bottom: 0;
+	width: 55px;
+	height: 55px;
+	background-color: #3721ff;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.detail-icon img {
+	width: 40%;
+	height: 40%;
+	object-fit: contain;
+}
+
+.contact-detail {
+	font-size: 1.2rem;
+	width: 500px;
 }
