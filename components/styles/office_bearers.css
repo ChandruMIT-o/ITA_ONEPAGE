@@ -121,8 +121,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	transition: right 1s ease-in-out;
 }
 
 .phone-icon {
@@ -149,7 +147,6 @@
 }
 
 .icon.clicked {
-	transform: scale(0.85) rotate3d(1, 1, 0, 50deg) skew(5deg, 9deg);
 	transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
 		background-color 0.3s linear;
 	animation: icon-active-effect 0.65s ease-in-out;
