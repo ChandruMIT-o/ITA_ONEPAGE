@@ -9,9 +9,9 @@ const colors = [
 const stage = document.querySelector(".animated-svg");
 let xPos = 0;
 
-for (let i = 0; i < 45; i++) {
+for (let i = 0; i < 70; i++) {
 	const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
-	const width = gsap.utils.random(5, 32, 1);
+	const width = gsap.utils.random(5, 24, 1);
 	gsap.set(p, {
 		x: xPos + width / 2,
 		y: 50,
