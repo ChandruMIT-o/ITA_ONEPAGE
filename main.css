@@ -25,12 +25,11 @@ body {
 	justify-items: end;
 	z-index: 10; /* Ensure it's on top of other elements */
 }
-
 .hover-bg,
 .selected-bg {
 	position: absolute;
-	background: rgba(255, 255, 255, 1);
-	backdrop-filter: blur(50px);
+	background: var(--hover-bg);
+	backdrop-filter: var(--hover-blur);
 	border-radius: 55px;
 	transition: all 0.5s ease;
 	z-index: -1;
@@ -47,34 +46,34 @@ body {
 	font-optical-sizing: auto;
 	font-weight: 500;
 	font-style: normal;
-	color: rgba(255, 255, 255, 1);
+	color: var(--menu-text);
 
 	cursor: pointer;
 	text-align: center;
 	border-radius: 30px;
-	background: rgba(255, 255, 255, 0.15);
-	backdrop-filter: blur(70px);
+	background: var(--menu-bg);
+	backdrop-filter: var(--hover-blur);
 	border: none;
 	transition: color 0.3s ease;
 	z-index: 1;
 }
 
 .menu-button:hover {
-	color: var(--ita-accent-color);
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: 1px rgba(255, 255, 255, 1);
+	color: var(--selected-text);
+	background: var(--hover-bg);
+	box-shadow: 1px var(--hover-bg);
 }
 
 .menu-button:active {
-	color: var(--ita-accent-color);
+	color: var(--selected-text);
 	border-radius: 15px;
-	background: rgba(255, 255, 255, 1);
+	background: var(--selected-bg);
 	font-size: 14.5px;
 }
 
 .selected-button {
-	color: var(--ita-accent-color);
-	background: rgba(255, 255, 255, 1);
+	color: var(--selected-text);
+	background: var(--selected-bg);
 	transition: all 0.3s ease;
 	font-weight: 700;
 }
