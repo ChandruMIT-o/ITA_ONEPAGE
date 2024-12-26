@@ -1,7 +1,6 @@
 const buttons = document.querySelectorAll(".menu-button");
 const hoverBg = document.querySelector(".hover-bg");
 const selectedBg = document.querySelector(".selected-bg");
-const container = document.querySelector(".global-container");
 const sections = document.querySelectorAll("section");
 let selectedButton = null;
 
@@ -47,6 +46,8 @@ buttons.forEach((button) => {
 		hoverBg.style.height = "5px";
 	});
 });
+
+const container = document.querySelector(".global-container");
 
 function onScroll() {
 	const viewportHeight = container.clientHeight;
@@ -97,7 +98,7 @@ function onScroll() {
 	);
 }
 
-container.addEventListener("scroll", onScroll);
+container.addEventListener("scroll", onScroll, { passive: true });
 
 window.addEventListener("DOMContentLoaded", () => {
 	const homeButton = document.querySelector(
@@ -108,21 +109,43 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 container.addEventListener("wheel", (event) => {
-	event.preventDefault();
-
-	const sections = Array.from(container.children);
 	const scrollOffset = container.scrollTop;
 	const viewportHeight = container.clientHeight;
 	const direction = event.deltaY > 0 ? 1 : -1;
 
-	const currentIndex = Math.round(scrollOffset / viewportHeight);
-	let nextIndex = Math.min(
-		Math.max(currentIndex + direction, 0),
+	let currentSectionIndex = 0;
+	sections.forEach((section, index) => {
+		const sectionTop = section.offsetTop;
+		const sectionBottom = sectionTop + section.offsetHeight;
+
+		if (scrollOffset >= sectionTop && scrollOffset < sectionBottom) {
+			currentSectionIndex = index;
+		}
+	});
+
+	const currentSection = sections[currentSectionIndex];
+	const currentSectionTop = currentSection.offsetTop;
+	const currentSectionBottom =
+		currentSectionTop + currentSection.offsetHeight;
+
+	const isScrolledToEndOfSection =
+		(direction > 0 &&
+			scrollOffset + viewportHeight >= currentSectionBottom) ||
+		(direction < 0 && scrollOffset <= currentSectionTop);
+
+	if (!isScrolledToEndOfSection) {
+		return;
+	}
+
+	event.preventDefault();
+
+	const nextIndex = Math.min(
+		Math.max(currentSectionIndex + direction, 0),
 		sections.length - 1
 	);
 
 	container.scrollTo({
-		top: viewportHeight * nextIndex,
+		top: sections[nextIndex].offsetTop,
 		behavior: "smooth",
 	});
 });

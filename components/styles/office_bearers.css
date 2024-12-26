@@ -1,27 +1,29 @@
 .office-bearers {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+	height: 300vh;
 }
 
 .office-bearers-title {
+	background: transparent;
 	display: flex;
 	text-transform: uppercase;
 	font-size: 2.7rem;
 	font-weight: 900;
-
 	padding-left: 150px;
 	padding-right: 60px;
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
 
-.container {
-	flex: 1;
+.scroll-container {
 	display: flex;
 	width: 100%;
-	overflow: hidden;
+	overflow-y: scroll;
 	margin: 10px;
-	position: relative;
+	height: 300vh;
+	overflow: visible;
 }
 
 .column {
@@ -48,7 +50,7 @@
 }
 
 .item {
-	background: #f8f8f8;
+	background: #dae0e4;
 	backdrop-filter: blur(5px);
 	border-radius: 30px;
 	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -64,7 +66,7 @@
 
 .item:hover {
 	transform: scale(1.03);
-	background: #e9f3f1;
+	background: #fff;
 	color: #fff;
 }
 

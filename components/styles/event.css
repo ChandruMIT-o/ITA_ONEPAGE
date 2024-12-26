@@ -1,0 +1,312 @@
+.event-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding-top: 3%;
+	gap: 3%;
+	padding-bottom: 3%;
+}
+
+.event-section-title {
+	text-transform: uppercase;
+	font-size: 2.7rem;
+	font-weight: 900;
+
+	padding-left: 150px;
+	color: black;
+}
+
+.winners-carousal {
+	display: flex;
+	flex-direction: row;
+	gap: 25px;
+	transition: transform 0.5s ease-in-out; /* Smooth sliding */
+	height: 520px;
+	padding-left: 70px;
+}
+
+.winner-card {
+	background-color: aliceblue;
+	width: 250px;
+	height: 260px;
+	flex-shrink: 0;
+	/* border-radius: 10px; */
+	transition: width 0.5s ease-in-out, height 0.5s ease-in-out; /* Smooth morphing */
+}
+
+.winner-card-large {
+	width: 500px;
+	height: 520px;
+}
+
+.winners-carousal-container {
+	position: relative;
+	overflow: hidden;
+	width: calc(500px + 3 * 250px + 3 * 25px + 70px);
+}
+
+.carousal-button-group {
+	position: absolute;
+	top: 53.5%;
+	left: 38.7%;
+	display: flex;
+	justify-content: center;
+	transform: translateY(-50%);
+	transform: translateX(50%);
+	flex-direction: column;
+
+	gap: 15px;
+}
+
+.btn-group {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.carousal-btn {
+	background-color: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(50px);
+	border: solid 2.3px #4753bf;
+	padding: 13px;
+	cursor: pointer;
+	border-radius: 50%;
+	display: flex;
+
+	transition: all 0.3s;
+}
+
+.carousal-btn:hover {
+	transform: scale(1.1);
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.carousal-btn:active {
+	transform: scale(0.9);
+}
+
+.carousal-btn img {
+	width: 15px;
+	height: 15px;
+}
+
+.event-winner-info {
+	position: absolute;
+	top: 335px;
+	left: 595px;
+	display: flex;
+	flex-direction: column;
+
+	gap: 10px;
+}
+
+.event-title {
+	font-size: 1.7rem;
+	font-weight: 900;
+	background: linear-gradient(to top, #4753bf, #6b87f4);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.event-description {
+	padding-right: 20%;
+}
+
+.winner-runner-tags {
+	position: absolute;
+	top: 460px;
+	left: 595px;
+	display: flex;
+
+	gap: 15px;
+}
+
+.winner-tag,
+.runner-tag {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+
+	background: #f8f8f8;
+
+	padding: 5px;
+	border-radius: 35px;
+	padding-right: 25px;
+}
+
+.winner-trophe-bubble,
+.runner-trophe-bubble {
+	padding: 5px;
+	border-radius: 25px;
+
+	height: 50px;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.winner-trophe-bubble {
+	background: linear-gradient(45deg, #d4ad4d, #fff199);
+}
+
+.runner-trophe-bubble {
+	background: linear-gradient(45deg, #474745, #f3f4f1);
+}
+
+.winner-trophe-bubble img {
+	width: 22px;
+	height: 22px;
+}
+
+.runner-trophe-bubble img {
+	width: 22px;
+	height: 22px;
+}
+
+.winner-name,
+.runner-name {
+	font-weight: 600;
+	letter-spacing: 0.6px;
+}
+
+.bottom-right-design {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+
+	height: 220px;
+}
+
+.toggle {
+	position: relative;
+	display: inline-flex;
+	text-align: center;
+	border-radius: 25px;
+	overflow: hidden;
+	text-align: center;
+	border: 1.5px solid #3721ff;
+	/* height: 45px; */
+}
+
+.toggle #tech,
+.toggle #n-tech {
+	position: relative;
+	padding: 10px 20px;
+	background: white;
+	color: #3721ff;
+	cursor: pointer;
+	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.toggle #tech {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.toggle #n-tech {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.toggle #tech::after,
+.toggle #n-tech::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 0px;
+	background-color: #3721ff;
+	z-index: -1;
+	transition: width 0.5s ease-in-out;
+}
+
+.toggle #tech::after {
+	right: 0;
+	top: 0;
+}
+
+.toggle #n-tech::before {
+	left: 0;
+	top: 0;
+}
+
+.toggle #tech:hover::after,
+.toggle #n-tech:hover::before {
+	background-color: #3721ff;
+	width: 100%;
+	transition: 0.5s ease-in-out;
+}
+
+.toggle #tech:hover,
+#n-tech:hover {
+	color: white;
+}
+
+.toggle #tech.active,
+.toggle #n-tech.active {
+	color: white;
+}
+
+.toggle #tech.clicked,
+.toggle #n-tech.clicked {
+	color: white;
+}
+
+.toggle #tech.active::after,
+.toggle #n-tech.active::before {
+	width: 100%;
+}
+
+.toggle #tech.hover::after,
+.toggle #n-tech.hover::before {
+	width: 100%;
+}
+
+#tech .te-icon {
+	position: absolute;
+	top: 50%;
+	left: 90%;
+	transform: translateY(-50%);
+}
+
+#n-tech .nt-icon {
+	position: absolute;
+	top: 50%;
+	right: 91%;
+	transform: translateY(-50%);
+}
+
+.lpath {
+	height: 18px;
+}
+
+.rpath {
+	height: 18px;
+}
+
+.te-icon svg path,
+.nt-icon svg path {
+	transition: fill 0.5s ease-in-out;
+	fill: #3721ff; /* Default to active color */
+}
+
+.toggle #tech:hover .te-icon svg path,
+.toggle #n-tech:hover .nt-icon svg path {
+	fill: white; /* Change to hover color */
+}
+
+.toggle #tech.active .te-icon svg path,
+.toggle #n-tech.active .nt-icon svg path {
+	fill: white; /* Change to selected color */
+}
+
+.event-header {
+	display: flex;
+	gap: 50px;
+	align-items: center;
+}
