@@ -4,6 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
 	const rows = Math.ceil(usection.offsetHeight / 40);
 	const cols = Math.ceil(usection.offsetWidth / 40);
 
+	// Helper function to generate random alpha values
+	const getRandomAlpha = (range) =>
+		range[Math.floor(Math.random() * range.length)];
+
+	// Helper function to set random alphas for a square
+	const setRandomAlphas = (square) => {
+		const borderAlpha = getRandomAlpha([0, 0.1, 0.2, 0.3, 0.4]);
+		const bgAlpha = Math.min(borderAlpha, getRandomAlpha([0.1, 0.2, 0.3]));
+		square.style.backgroundColor = `rgba(255, 255, 255, ${bgAlpha})`;
+		square.style.borderColor = `rgba(255, 255, 255, ${borderAlpha})`;
+	};
+
+	const fragment = document.createDocumentFragment();
+
 	for (let i = 0; i < rows; i++) {
 		for (let j = 0; j < cols; j++) {
 			const square = document.createElement("div");
@@ -11,51 +25,37 @@ document.addEventListener("DOMContentLoaded", () => {
 			square.style.top = `${i * 40}px`;
 			square.style.left = `${j * 40}px`;
 
-			const randomDuration = (Math.random() * 3 + 2).toFixed(2); // Between 2s and 5s
+			// Randomize initial transition duration
+			const randomDuration = (Math.random() * 3 + 2).toFixed(2);
 			square.style.transition = `background-color ${randomDuration}s ease-in-out, border-color ${randomDuration}s ease-in-out`;
 
-			const setRandomAlphas = () => {
-				const borderAlpha = [0, 0.1, 0.2, 0.3, 0.4][
-					Math.floor(Math.random() * 5)
-				];
-				const bgAlpha = Math.min(
-					borderAlpha,
-					[0.1, 0.2, 0.3][Math.floor(Math.random() * 3)]
-				);
+			// Apply initial alphas
+			setRandomAlphas(square);
 
-				square.style.backgroundColor = `rgba(255, 255, 255, ${bgAlpha})`;
-				square.style.borderColor = `rgba(255, 255, 255, ${borderAlpha})`;
-			};
-
-			setRandomAlphas();
-
+			// Hover effect
 			square.addEventListener("mouseenter", () => {
 				square.style.transition =
 					"background-color 0.3s ease-in-out, border-color 0.3s ease-in-out";
+				setRandomAlphas(square);
 
-				const borderAlpha = [0, 0.1, 0.2, 0.3, 0.4][
-					Math.floor(Math.random() * 5)
-				];
-				const bgAlpha = Math.min(
-					borderAlpha,
-					[0.1, 0.2, 0.3][Math.floor(Math.random() * 3)]
-				);
-
-				square.style.backgroundColor = `rgba(255, 255, 255, ${bgAlpha})`;
-				square.style.borderColor = `rgba(255, 255, 255, ${borderAlpha})`;
-
+				// Restore original transition after hover effect
 				setTimeout(() => {
 					square.style.transition = `background-color ${randomDuration}s ease-in-out, border-color ${randomDuration}s ease-in-out`;
-				}, 300); // Matches the hover duration
+				}, 300);
 			});
 
-			setInterval(() => {
-				setRandomAlphas();
-			}, Math.random() * 3000 + 2000); // Between 2s and 5s
+			// Periodically update alphas
+			setInterval(
+				() => setRandomAlphas(square),
+				Math.random() * 3000 + 2000
+			);
 
-			usection.appendChild(square);
+			fragment.appendChild(square);
 		}
 	}
+
+	// Append all squares at once for better performance
+	usection.appendChild(fragment);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
