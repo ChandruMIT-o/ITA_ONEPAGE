@@ -21,9 +21,9 @@
 	display: flex;
 	width: 100%;
 	overflow-y: scroll;
-	margin: 10px;
 	height: 300vh;
 	overflow: visible;
+	justify-content: center;
 }
 
 .column {
@@ -35,8 +35,6 @@
 	transition: transform 0.3s ease-out;
 	justify-content: flex-start;
 	gap: 20px;
-
-	background: transparent;
 }
 
 .personal-details {
@@ -50,7 +48,7 @@
 }
 
 .item {
-	background: #dae0e4;
+	background: #e9f3f1;
 	backdrop-filter: blur(5px);
 	border-radius: 30px;
 	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -66,7 +64,7 @@
 
 .item:hover {
 	transform: scale(1.03);
-	background: #fff;
+	background: #f8f8f8;
 	color: #fff;
 }
 
@@ -84,7 +82,6 @@
 .slow {
 	transform: translateY(0);
 	transition: transform 0.05s linear;
-
 	background-color: transparent;
 }
 
@@ -197,4 +194,10 @@
 		opacity: 0;
 		transform: translateY(-15px);
 	}
+}
+
+.quote {
+	position: relative;
+	font-size: 2rem;
+	z-index: 2;
 }

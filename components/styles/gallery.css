@@ -1,5 +1,6 @@
 .gallery-section {
-	width: max-content;
+	width: 100vw;
+	overflow: hidden;
 }
 
 /* 1. BACKGROUND DESIGN */

@@ -1,7 +1,7 @@
-const speedColumn1 = 0.5;
-const speedColumn2 = 0.375;
-const speedColumn3 = 0.5;
-const speedColumn4 = 0.375;
+const speedColumn1 = 0.3;
+const speedColumn2 = 0.01;
+const speedColumn3 = 0.3;
+const speedColumn4 = 0.01;
 
 const scrollContainer = document.querySelector(".global-container");
 const section3 = document.querySelector("#section-3");
