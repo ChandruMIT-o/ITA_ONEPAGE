@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Function to execute the script logic
+const initializeSection6 = () => {
 	const usection = document.querySelector(".usection");
 
 	const rows = Math.ceil(usection.offsetHeight / 40);
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			// Periodically update alphas
 			setInterval(
 				() => setRandomAlphas(square),
-				Math.random() * 3000 + 2000
+				Math.random() * 5000 + 2000
 			);
 
 			fragment.appendChild(square);
@@ -56,7 +57,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Append all squares at once for better performance
 	usection.appendChild(fragment);
-});
+};
+
+// IntersectionObserver for lazy execution of the section-specific script
+const section6 = document.querySelector("#section-6");
+if (section6) {
+	const observerOptions = {
+		root: null, // Viewport
+		threshold: 0.1, // Trigger when 10% of the section is visible
+	};
+
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				// Run the script logic and unobserve
+				initializeSection6();
+				observer.unobserve(entry.target); // Unobserve to avoid repeated execution
+			}
+		});
+	}, observerOptions);
+
+	observer.observe(section6);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 	const buttonGroup = document.querySelector(".button-group");
