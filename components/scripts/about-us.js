@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const handleAboutUsSection = (entries) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				initializeOdometer(".placements-odometer", 99);
-				initializeOdometer(".ctc-odometer", 43);
-				initializeOdometer(".interns-odometer", 32);
-				initializeOdometer(".higher-studies-odometer", 3);
+				initializeOdometer(".placements-odometer", 75);
+				initializeOdometer(".ctc-odometer", -);
+				initializeOdometer(".interns-odometer", 51);
+				initializeOdometer(".higher-studies-odometer", -);
 			}
 		});
 	};
@@ -39,35 +39,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 2. RIGHT ABOUT US SECTION
 
+// const wrapper = document.getElementById("wrapper");
+
+// const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+// const uniqueRand = (min, max, prev) => {
+// 	let next = prev;
+
+// 	while (prev === next) next = rand(min, max);
+
+// 	return next;
+// };
+
+// const combinations = [
+// 	{ configuration: 1, roundness: 1 },
+// 	{ configuration: 1, roundness: 2 },
+// 	{ configuration: 1, roundness: 4 },
+// 	{ configuration: 2, roundness: 2 },
+// 	{ configuration: 2, roundness: 3 },
+// 	{ configuration: 3, roundness: 3 },
+// ];
+
+// let prev = 0;
+
+// setInterval(() => {
+// 	const index = uniqueRand(0, combinations.length - 1, prev),
+// 		combination = combinations[index];
+
+// 	wrapper.dataset.configuration = combination.configuration;
+// 	wrapper.dataset.roundness = combination.roundness;
+
+// 	prev = index;
+// }, 5000);
+
 const wrapper = document.getElementById("wrapper");
-
-const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-
-const uniqueRand = (min, max, prev) => {
-	let next = prev;
-
-	while (prev === next) next = rand(min, max);
-
-	return next;
-};
 
 const combinations = [
 	{ configuration: 1, roundness: 1 },
 	{ configuration: 1, roundness: 2 },
+	{ configuration: 1, roundness: 3 },
 	{ configuration: 1, roundness: 4 },
+
+	{ configuration: 2, roundness: 1 },
 	{ configuration: 2, roundness: 2 },
 	{ configuration: 2, roundness: 3 },
+	{ configuration: 2, roundness: 4 },
+
+	{ configuration: 3, roundness: 1 },
+	{ configuration: 3, roundness: 2 },
 	{ configuration: 3, roundness: 3 },
+	{ configuration: 3, roundness: 4 },
 ];
 
-let prev = 0;
+let index = 0;
 
 setInterval(() => {
-	const index = uniqueRand(0, combinations.length - 1, prev),
-		combination = combinations[index];
+	const combination = combinations[index];
 
 	wrapper.dataset.configuration = combination.configuration;
 	wrapper.dataset.roundness = combination.roundness;
 
-	prev = index;
-}, 3000);
+	index = (index + 1) % combinations.length; // Wrap around at end
+}, 2000);

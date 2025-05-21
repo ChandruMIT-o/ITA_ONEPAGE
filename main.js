@@ -63,54 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (section1) observer.observe(section1);
 });
 
-// function loadScript(src) {
-// 	const script = document.createElement("script");
-// 	script.src = src;
-// 	script.defer = true;
-// 	document.body.appendChild(script);
-// }
-
-// const observer = new IntersectionObserver(
-// 	(entries) => {
-// 		entries.forEach((entry) => {
-// 			if (entry.isIntersecting) {
-// 				const sectionId = entry.target.id;
-
-// 				switch (sectionId) {
-// 					case "section-2":
-// 						loadScript("components/scripts/about-us.js");
-// 						break;
-// 					case "section-3":
-// 						loadScript("components/scripts/office_bearers.js");
-// 						break;
-// 					case "section-4":
-// 						loadScript("components/scripts/activities.js");
-// 						break;
-// 					case "section-5":
-// 						loadScript("components/scripts/event.js");
-// 						break;
-// 					case "section-6":
-// 						loadScript("components/scripts/gallery.js");
-// 						break;
-// 					case "section-7":
-// 						loadScript("components/scripts/contact.js");
-// 						break;
-// 					default:
-// 						break;
-// 				}
-
-// 				observer.unobserve(entry.target);
-// 			}
-// 		});
-// 	},
-// 	{ threshold: 0.1 }
-// ); // Trigger when 10% of a section is visible
-
-// Observe all sections
-// document
-// 	.querySelectorAll("section")
-// 	.forEach((section) => observer.observe(section));
-
 const buttons = document.querySelectorAll(".menu-button");
 const hoverBg = document.querySelector(".hover-bg");
 const selectedBg = document.querySelector(".selected-bg");
@@ -294,43 +246,6 @@ container.addEventListener(
 	{ passive: false }
 );
 
-// const cursorDot = document.createElement("div");
-// const cursorCircle = document.createElement("div");
-
-// cursorDot.id = "cursor-dot";
-// cursorCircle.id = "cursor-circle";
-
-// document.body.appendChild(cursorDot);
-// document.body.appendChild(cursorCircle);
-
-// const cursorDotStyle = cursorDot.style;
-// const cursorCircleStyle = cursorCircle.style;
-
-// let mouseX = 0,
-// 	mouseY = 0,
-// 	circleX = 0,
-// 	circleY = 0;
-
-// // Update cursor position
-// document.addEventListener("mousemove", (e) => {
-// 	mouseX = e.clientX;
-// 	mouseY = e.clientY;
-
-// 	cursorDotStyle.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-// });
-
-// // Animate circle to follow dot
-// const followCursor = () => {
-// 	const speed = 1;
-// 	circleX += (mouseX - circleX) * speed;
-// 	circleY += (mouseY - circleY) * speed;
-
-// 	cursorCircleStyle.transform = `translate(${circleX}px, ${circleY}px) translate(-50%, -50%)`;
-
-// 	requestAnimationFrame(followCursor);
-// };
-// followCursor();
-
 // Handle scrolling behavior
 let scrollingTimeout;
 
@@ -346,166 +261,282 @@ const handleScroll = () => {
 
 document.addEventListener("scroll", handleScroll);
 
-jQuery(document).ready(function ($) {
-	// Run network animation after a short delay
-	setTimeout(runNetworkAnim);
+// jQuery(document).ready(function ($) {
+// 	// Run network animation after a short delay
+// 	setTimeout(runNetworkAnim);
 
-	// Handle window resize with a debounce function
-	let resizeTimeout;
-	window.onresize = () => {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(runNetworkAnim, 500);
-	};
+// 	// Handle window resize with a debounce function
+// 	let resizeTimeout;
+// 	window.onresize = () => {
+// 		clearTimeout(resizeTimeout);
+// 		resizeTimeout = setTimeout(runNetworkAnim, 500);
+// 	};
 
-	// Convert hex color to RGBA
-	const convertHex = (hex, opacity) => {
-		const r = parseInt(hex.substring(1, 3), 16);
-		const g = parseInt(hex.substring(3, 5), 16);
-		const b = parseInt(hex.substring(5, 7), 16);
-		return `rgba(${r},${g},${b},${opacity / 100})`;
-	};
+// 	// Convert hex color to RGBA
+// 	const convertHex = (hex, opacity) => {
+// 		const r = parseInt(hex.substring(1, 3), 16);
+// 		const g = parseInt(hex.substring(3, 5), 16);
+// 		x;
+// 		const b = parseInt(hex.substring(5, 7), 16);
+// 		return rgba(`${r},${g},${b},${opacity / 100}`);
+// 	};
 
-	// Network animation function
-	function runNetworkAnim() {
-		let currentScopeID = ++runNetworkAnim.currentGlobalID || 0;
-		const canvas = document.querySelector("#network");
-		if (!canvas) return;
+// 	// Network animation function
+// 	function runNetworkAnim() {
+// 		let currentScopeID = ++runNetworkAnim.currentGlobalID || 0;
+// 		const canvas = document.querySelector("#network");
+// 		if (!canvas) return;
 
-		const ctx = canvas.getContext("2d");
-		canvas.width = canvas.clientWidth;
-		canvas.height = canvas.clientHeight;
+// 		const ctx = canvas.getContext("2d");
+// 		canvas.width = canvas.clientWidth;
+// 		canvas.height = canvas.clientHeight;
 
-		// Configuration
-		const CONFIG = {
-			mainColor: "#151BFF",
-			secondaryColor: "darkblue",
-			borderColor: "darkblue",
-			lineAlpha: 100,
-			numBalls: 100,
-			ballRadius: 6,
-			ballRadiusMin: 2,
-			speed: 0.1,
-			globalAlpha: 0.5,
-			mouseRadius: 50,
-			connectionDistance: 100,
-			fps: 12,
-		};
-		const TAU = 2 * Math.PI;
+// 		// Configuration
+// 		const CONFIG = {
+// 			mainColor: "#151BFF",
+// 			secondaryColor: "darkblue",
+// 			borderColor: "darkblue",
+// 			lineAlpha: 90,
+// 			numBalls: 120,
+// 			ballRadius: 6,
+// 			ballRadiusMin: 2,
+// 			speed: 0.1,
+// 			globalAlpha: 0.5,
+// 			mouseRadius: 50,
+// 			connectionDistance: 100,
+// 			fps: 12,
+// 		};
+// 		const TAU = 2 * Math.PI;
 
-		// Ball class
-		class Ball {
-			constructor(x, y, velX, velY) {
-				this.x = x ?? Math.random() * canvas.width;
-				this.y = y ?? Math.random() * canvas.height;
-				this.vel = {
-					x: velX ?? Math.random() * CONFIG.speed * 2 - CONFIG.speed,
-					y: velY ?? Math.random() * CONFIG.speed * 2 - CONFIG.speed,
-				};
-			}
+// 		// Ball class
+// 		class Ball {
+// 			constructor(x, y, velX, velY) {
+// 				this.x = x ?? Math.random() * canvas.width;
+// 				this.y = y ?? Math.random() * canvas.height;
+// 				this.vel = {
+// 					x: velX ?? Math.random() * CONFIG.speed * 2 - CONFIG.speed,
+// 					y: velY ?? Math.random() * CONFIG.speed * 2 - CONFIG.speed,
+// 				};
+// 			}
 
-			update() {
-				if (this.x > canvas.width + 50 || this.x < -50)
-					this.vel.x = -this.vel.x;
-				if (this.y > canvas.height + 50 || this.y < -50)
-					this.vel.y = -this.vel.y;
-				this.x += this.vel.x;
-				this.y += this.vel.y;
-			}
+// 			update() {
+// 				if (this.x > canvas.width + 50 || this.x < -50)
+// 					this.vel.x = -this.vel.x;
+// 				if (this.y > canvas.height + 50 || this.y < -50)
+// 					this.vel.y = -this.vel.y;
+// 				this.x += this.vel.x;
+// 				this.y += this.vel.y;
+// 			}
 
-			draw() {
-				ctx.beginPath();
-				const distM = Ball.distMouse(this);
-				const dynamicRadius =
-					distM > CONFIG.connectionDistance
-						? CONFIG.ballRadiusMin
-						: CONFIG.ballRadius *
-						  (1 - distM / CONFIG.connectionDistance);
+// 			draw() {
+// 				ctx.beginPath();
+// 				const distM = Ball.distMouse(this);
+// 				const dynamicRadius =
+// 					distM > CONFIG.connectionDistance
+// 						? CONFIG.ballRadiusMin
+// 						: CONFIG.ballRadius *
+// 						  (1 - distM / CONFIG.connectionDistance);
 
-				ctx.fillStyle =
-					distM > CONFIG.mouseRadius
-						? CONFIG.mainColor
-						: CONFIG.secondaryColor;
-				ctx.strokeStyle = CONFIG.borderColor;
-				ctx.globalAlpha =
-					distM > CONFIG.mouseRadius ? CONFIG.globalAlpha : 1;
+// 				ctx.fillStyle =
+// 					distM > CONFIG.mouseRadius
+// 						? CONFIG.mainColor
+// 						: CONFIG.secondaryColor;
+// 				ctx.strokeStyle = CONFIG.borderColor;
+// 				ctx.globalAlpha =
+// 					distM > CONFIG.mouseRadius ? CONFIG.globalAlpha : 1;
 
-				ctx.arc(this.x, this.y, dynamicRadius, 0, TAU);
-				ctx.fill();
-				if (distM <= CONFIG.mouseRadius) ctx.stroke();
-			}
+// 				ctx.arc(this.x, this.y, dynamicRadius, 0, TAU);
+// 				ctx.fill();
+// 				if (distM <= CONFIG.mouseRadius) ctx.stroke();
+// 			}
 
-			static distMouse(ball) {
-				return Math.hypot(ball.x - mouseX, ball.y - mouseY);
+// 			static distMouse(ball) {
+// 				return Math.hypot(ball.x - mouseX, ball.y - mouseY);
+// 			}
+// 		}
+
+// 		// Generate balls
+// 		const balls = Array.from(
+// 			{ length: (canvas.width * canvas.height) / CONFIG.numBalls ** 2 },
+// 			() => new Ball()
+// 		);
+
+// 		// Update function
+// 		let lastTime = Date.now();
+// 		const update = () => {
+// 			const now = Date.now();
+// 			const delta = now - lastTime;
+// 			for (let frame = 0; frame * 16.667 < delta; frame++) {
+// 				balls.forEach((ball) => ball.update());
+// 			}
+// 			lastTime = now;
+// 		};
+
+// 		// Draw function
+// 		const draw = () => {
+// 			ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+// 			balls.forEach((ball, index) => {
+// 				for (let j = index + 1; j < balls.length; j++) {
+// 					const other = balls[j];
+// 					const dist = Math.hypot(ball.x - other.x, ball.y - other.y);
+
+// 					if (dist < CONFIG.connectionDistance) {
+// 						const distM = Ball.distMouse(other);
+// 						ctx.beginPath();
+// 						ctx.moveTo(ball.x, ball.y);
+// 						ctx.lineTo(other.x, other.y);
+
+// 						if (distM > CONFIG.mouseRadius) {
+// 							ctx.strokeStyle = CONFIG.mainColor;
+// 							ctx.globalAlpha =
+// 								1 - dist / CONFIG.connectionDistance;
+// 						} else {
+// 							ctx.strokeStyle = CONFIG.secondaryColor;
+// 							ctx.globalAlpha =
+// 								1 - dist / CONFIG.connectionDistance + 0.3;
+// 						}
+
+// 						ctx.stroke();
+// 					}
+// 				}
+// 				ball.draw();
+// 			});
+// 		};
+
+// 		// Mouse tracking
+// 		let mouseX = -Infinity,
+// 			mouseY = -Infinity;
+// 		document.addEventListener("mousemove", (e) => {
+// 			mouseX = e.clientX;
+// 			mouseY = e.clientY;
+// 		});
+
+// 		// Animation loop
+// 		(function loop() {
+// 			if (currentScopeID === runNetworkAnim.currentGlobalID) {
+// 				update();
+// 				draw();
+// 				requestAnimationFrame(loop);
+// 			}
+// 		})();
+// 	}
+
+// 	// Track current animation ID
+// 	runNetworkAnim.currentGlobalID = -1;
+// });
+const menuBar = document.querySelector(".menu-bar");
+let currentHoveredButton = null;
+let animating = false; // Flag to indicate that a transition is in progress
+
+// Update the selected background position/size relative to menuBar
+function updateSelectedButton(button) {
+	if (!button) return;
+
+	// Update the selected state if needed
+	if (selectedButton && selectedButton !== button) {
+		selectedButton.classList.remove("selected-button");
+	}
+	selectedButton = button;
+	selectedButton.classList.add("selected-button");
+
+	const buttonRect = selectedButton.getBoundingClientRect();
+	const containerRect = menuBar.getBoundingClientRect();
+	selectedBg.style.top = `${buttonRect.top - containerRect.top}px`;
+	selectedBg.style.left = `${buttonRect.left - containerRect.left}px`;
+	selectedBg.style.width = `${buttonRect.width}px`;
+	selectedBg.style.height = `${buttonRect.height}px`;
+}
+
+// Update the hover background position/size relative to menuBar
+function updateHoverBg(button) {
+	if (!button) return;
+	const buttonRect = button.getBoundingClientRect();
+	const containerRect = menuBar.getBoundingClientRect();
+	hoverBg.style.top = `${buttonRect.top - containerRect.top}px`;
+	hoverBg.style.left = `${buttonRect.left - containerRect.left}px`;
+	hoverBg.style.width = `${buttonRect.width}px`;
+	hoverBg.style.height = `${buttonRect.height}px`;
+}
+
+// Continuously update backgrounds while the menu container is transitioning.
+function continuousUpdate() {
+	if (!animating) return; // Stop if we're no longer animating
+	if (selectedButton) updateSelectedButton(selectedButton);
+	if (currentHoveredButton) updateHoverBg(currentHoveredButton);
+	requestAnimationFrame(continuousUpdate);
+}
+
+buttons.forEach((button) => {
+	const targetId = button.getAttribute("data-target");
+	const targetElement = document.querySelector(targetId);
+
+	button.addEventListener("click", (e) => {
+		if (window.innerWidth <= 768) {
+			// If clicking the already selected button on mobile, toggle expansion.
+			if (button.classList.contains("selected-button")) {
+				menuBar.classList.toggle("expanded");
+
+				// Start continuously updating while the container is animating.
+				animating = true;
+				continuousUpdate();
+
+				e.stopPropagation(); // Prevent accidental scrolling on toggle.
+				return;
+			} else {
+				// When clicking a different button, collapse the menu.
+				menuBar.classList.remove("expanded");
 			}
 		}
+		updateSelectedButton(button);
+		targetElement.scrollIntoView({ behavior: "smooth" });
+	});
 
-		// Generate balls
-		const balls = Array.from(
-			{ length: (canvas.width * canvas.height) / CONFIG.numBalls ** 2 },
-			() => new Ball()
-		);
+	button.addEventListener("mouseenter", () => {
+		if (window.innerWidth > 768 || menuBar.classList.contains("expanded")) {
+			currentHoveredButton = button;
+			updateHoverBg(button);
+		}
+	});
 
-		// Update function
-		let lastTime = Date.now();
-		const update = () => {
-			const now = Date.now();
-			const delta = now - lastTime;
-			for (let frame = 0; frame * 16.667 < delta; frame++) {
-				balls.forEach((ball) => ball.update());
-			}
-			lastTime = now;
-		};
+	button.addEventListener("mouseleave", () => {
+		currentHoveredButton = null;
+		// Optionally, shrink the hover background when leaving.
+		hoverBg.style.width = "5px";
+		hoverBg.style.height = "5px";
+	});
+});
 
-		// Draw function
-		const draw = () => {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Use ResizeObserver to update backgrounds when menuBar changes size.
+if ("ResizeObserver" in window) {
+	const resizeObserver = new ResizeObserver(() => {
+		if (selectedButton) updateSelectedButton(selectedButton);
+		if (currentHoveredButton) updateHoverBg(currentHoveredButton);
+	});
+	resizeObserver.observe(menuBar);
+}
 
-			balls.forEach((ball, index) => {
-				for (let j = index + 1; j < balls.length; j++) {
-					const other = balls[j];
-					const dist = Math.hypot(ball.x - other.x, ball.y - other.y);
-
-					if (dist < CONFIG.connectionDistance) {
-						const distM = Ball.distMouse(other);
-						ctx.beginPath();
-						ctx.moveTo(ball.x, ball.y);
-						ctx.lineTo(other.x, other.y);
-
-						if (distM > CONFIG.mouseRadius) {
-							ctx.strokeStyle = CONFIG.mainColor;
-							ctx.globalAlpha =
-								1 - dist / CONFIG.connectionDistance;
-						} else {
-							ctx.strokeStyle = CONFIG.secondaryColor;
-							ctx.globalAlpha =
-								1 - dist / CONFIG.connectionDistance + 0.3;
-						}
-
-						ctx.stroke();
-					}
-				}
-				ball.draw();
-			});
-		};
-
-		// Mouse tracking
-		let mouseX = -Infinity,
-			mouseY = -Infinity;
-		document.addEventListener("mousemove", (e) => {
-			mouseX = e.clientX;
-			mouseY = e.clientY;
+// When the menu container's max-height transition ends, stop the animation loop.
+menuBar.addEventListener("transitionend", (e) => {
+	if (e.propertyName === "max-height") {
+		animating = false; // Stop the continuous update loop.
+		requestAnimationFrame(() => {
+			if (selectedButton) updateSelectedButton(selectedButton);
+			if (currentHoveredButton) updateHoverBg(currentHoveredButton);
 		});
-
-		// Animation loop
-		(function loop() {
-			if (currentScopeID === runNetworkAnim.currentGlobalID) {
-				update();
-				draw();
-				requestAnimationFrame(loop);
-			}
-		})();
 	}
+});
 
-	// Track current animation ID
-	runNetworkAnim.currentGlobalID = -1;
+// Collapse the mobile menu if the user clicks outside of it.
+document.addEventListener("click", (event) => {
+	if (window.innerWidth <= 768 && !menuBar.contains(event.target)) {
+		menuBar.classList.remove("expanded");
+		if (selectedButton) updateSelectedButton(selectedButton);
+	}
+});
+
+// Also update backgrounds on window resize.
+window.addEventListener("resize", () => {
+	if (selectedButton) updateSelectedButton(selectedButton);
+	if (currentHoveredButton) updateHoverBg(currentHoveredButton);
 });

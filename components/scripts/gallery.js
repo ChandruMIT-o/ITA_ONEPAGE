@@ -149,34 +149,41 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 
+// TRACK
 const track = document.getElementById("image-track");
 
 const handleOnDown = (e) => {
-	track.dataset.mouseDownAt = e.clientX; // Store where the mouse is clicked
+	track.dataset.mouseDownAt = e.clientX;
 };
 
 const handleOnUp = () => {
-	track.dataset.mouseDownAt = "0"; // Reset on mouse release
-	track.dataset.prevPercentage = track.dataset.percentage; // Save the current percentage
+	track.dataset.mouseDownAt = "0";
+	track.dataset.prevPercentage = track.dataset.percentage;
 };
-
 const handleOnMove = (e) => {
-	if (track.dataset.mouseDownAt === "0") return; // Ignore if mouse is not clicked
+	if (track.dataset.mouseDownAt === "0") return;
 
-	const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX, // Calculate movement
-		maxDelta = window.innerWidth / 2; // Normalize movement by screen size
+	const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
+	const maxDelta = window.innerWidth / 2;
 
-	const percentage = (mouseDelta / maxDelta) * -100, // Convert movement to percentage
-		nextPercentageUnconstrained =
-			parseFloat(track.dataset.prevPercentage) + percentage, // Add to previous position
-		nextPercentage = Math.max(
-			Math.min(nextPercentageUnconstrained, 0),
-			-100
-		); // Clamp value between -100 and 0
+	const percentage = (mouseDelta / maxDelta) * -100;
+	const nextPercentageUnconstrained =
+		parseFloat(track.dataset.prevPercentage) + percentage;
 
-	track.dataset.percentage = nextPercentage; // Save percentage for next move
+	// Calculate dynamic max percentage based on number of images
+	const imageCount = track.querySelectorAll(".image").length;
+	const imageWidthVW = 90; // image width + gap in vmin (same as CSS)
+	const totalWidthVW = imageCount * imageWidthVW;
+	const screenWidthVW = 100;
+	const maxNegativePercentage = screenWidthVW - totalWidthVW; // e.g., -300% if total width is 400vw
 
-	// Smoothly animate the track position
+	const nextPercentage = Math.max(
+		Math.min(nextPercentageUnconstrained, 0),
+		maxNegativePercentage
+	);
+
+	track.dataset.percentage = nextPercentage;
+
 	track.animate(
 		{
 			transform: `translate(${nextPercentage}%, -50%)`,
@@ -184,7 +191,6 @@ const handleOnMove = (e) => {
 		{ duration: 1200, fill: "forwards" }
 	);
 
-	// Animate each image's object position
 	for (const image of track.getElementsByClassName("image")) {
 		image.animate(
 			{
@@ -195,12 +201,11 @@ const handleOnMove = (e) => {
 	}
 };
 
-/* Add Event Listeners */
 window.onmousedown = (e) => handleOnDown(e);
 window.ontouchstart = (e) => handleOnDown(e.touches[0]);
 
-window.onmouseup = (e) => handleOnUp(e);
-window.ontouchend = (e) => handleOnUp(e.touches[0]);
+window.onmouseup = handleOnUp;
+window.ontouchend = handleOnUp;
 
 window.onmousemove = (e) => handleOnMove(e);
 window.ontouchmove = (e) => handleOnMove(e.touches[0]);

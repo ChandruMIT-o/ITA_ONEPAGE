@@ -97,7 +97,6 @@
 
 .gallery-section {
 	height: 100vh;
-	/* width: 100vw; */
 	margin: 0rem;
 }
 
@@ -125,15 +124,15 @@
 }
 
 #image-track:active {
-	gap: 2vmin;
+	/* gap: 2vmin; */
 }
 
 #image-track:active > .image {
 	cursor: grabbing;
-	width: 40vmin;
-	height: 66vmin;
+	width: 90vmin;
+	height: 60vmin;
 
-	border-radius: 200px;
+	border-radius: 20px;
 }
 
 #image-track:hover > .image {

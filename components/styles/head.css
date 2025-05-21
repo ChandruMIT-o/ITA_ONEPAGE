@@ -176,3 +176,23 @@
 
 	color: #c5cce5;
 }
+
+@media (max-width: 768px) {
+	.TITLE {
+		font-size: 2.3rem;
+		letter-spacing: 1px;
+	}
+	.description {
+		font-size: 1rem;
+		font-family: var(--outfit);
+		width: 80vw;
+		padding-right: 0px;
+	}
+	.ITA-text-animation {
+		font-size: 2rem;
+	}
+	.home-section {
+		padding-left: 30px;
+		padding-bottom: 10px;
+	}
+}

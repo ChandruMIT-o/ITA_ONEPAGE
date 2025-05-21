@@ -151,7 +151,7 @@
 
 #wrapper > .shape:nth-child(1) {
 	background-color: #8fa5ff;
-	/* background-image: url('https://picsum.photos/id/1/300/300'); */
+	/* background-image: url("https://picsum.photos/id/1/300/300"); */
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -186,6 +186,8 @@
 }
 
 #wrapper[data-configuration="1"] > .shape:nth-child(1) {
+	background-image: url("about/c1_1.png");
+
 	left: 0%;
 	top: 0%;
 	height: 50%;
@@ -193,6 +195,7 @@
 }
 
 #wrapper[data-configuration="1"] > .shape:nth-child(2) {
+	background-image: url("about/c1_4.png");
 	left: 50%;
 	top: 50%;
 	height: 50%;
@@ -200,6 +203,7 @@
 }
 
 #wrapper[data-configuration="1"] > .shape:nth-child(3) {
+	background-image: url("about/c1_2.png");
 	left: 50%;
 	top: 0%;
 	height: 50%;
@@ -207,6 +211,7 @@
 }
 
 #wrapper[data-configuration="1"] > .shape:nth-child(4) {
+	background-image: url("about/c1_3.png");
 	left: 0%;
 	top: 50%;
 	height: 50%;
@@ -214,6 +219,8 @@
 }
 
 #wrapper[data-configuration="2"] > .shape:nth-child(1) {
+	background-image: url("about/c3_2.png");
+
 	left: 25%;
 	top: 20%;
 	height: 80%;
@@ -221,6 +228,8 @@
 }
 
 #wrapper[data-configuration="2"] > .shape:nth-child(2) {
+	background-image: url("about/c3_4.png");
+
 	left: 75%;
 	top: 20%;
 	height: 60%;
@@ -228,6 +237,8 @@
 }
 
 #wrapper[data-configuration="2"] > .shape:nth-child(3) {
+	background-image: url("about/c3_3.png");
+
 	left: 50%;
 	top: 0%;
 	height: 100%;
@@ -235,6 +246,8 @@
 }
 
 #wrapper[data-configuration="2"] > .shape:nth-child(4) {
+	background-image: url("about/c3_1.png");
+
 	left: 0%;
 	top: 0%;
 	height: 100%;
@@ -242,6 +255,8 @@
 }
 
 #wrapper[data-configuration="3"] > .shape:nth-child(1) {
+	background-image: url("about/c2_1.png");
+
 	left: 0%;
 	top: 0%;
 	height: 50%;
@@ -249,6 +264,8 @@
 }
 
 #wrapper[data-configuration="3"] > .shape:nth-child(2) {
+	background-image: url("about/c2_2.png");
+
 	left: 25%;
 	top: 0%;
 	height: 50%;
@@ -256,6 +273,8 @@
 }
 
 #wrapper[data-configuration="3"] > .shape:nth-child(3) {
+	background-image: url("about/c2_3.png");
+
 	left: 50%;
 	top: 0%;
 	height: 100%;
@@ -263,6 +282,8 @@
 }
 
 #wrapper[data-configuration="3"] > .shape:nth-child(4) {
+	background-image: url("about/c2_4.png");
+
 	left: 0%;
 	top: 50%;
 	height: 50%;
@@ -296,4 +317,7 @@
 #wrapper[data-roundness="4"] > .shape:nth-child(4) {
 	border-top-right-radius: 10rem;
 	border-bottom-right-radius: 10rem;
+}
+
+@media (max-width: 768px) {
 }
