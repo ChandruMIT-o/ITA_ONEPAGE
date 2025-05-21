@@ -168,7 +168,7 @@
 
 .winner-name,
 .runner-name {
-	font-weight: 600;
+	/* font-weight: 600; */
 	letter-spacing: 0.6px;
 }
 

@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				initializeOdometer(".placements-odometer", 75);
-				initializeOdometer(".ctc-odometer", -);
+				initializeOdometer(".ctc-odometer", 26);
 				initializeOdometer(".interns-odometer", 51);
-				initializeOdometer(".higher-studies-odometer", -);
+				initializeOdometer(".higher-studies-odometer", 3);
 			}
 		});
 	};
